@@ -20,6 +20,7 @@
             Show Image
           </button>
         </th>
+        <th>Team</th>
         <th>Name</th>
         <th>Position</th>
         <th>Number</th>
@@ -28,6 +29,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let player of players">
+        <td>&nbsp;</td>
+        <td>{{player.nhlPlayer.person.currentTeam.name}}</td>
         <td>{{player.nhlPlayer.person.fullName}}</td>
         <td>{{player.nhlPlayer.position.name}}</td>
         <td>{{player.nhlPlayer.jerseyNumber}}</td>
