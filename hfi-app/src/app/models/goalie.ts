@@ -1,3 +1,4 @@
-export interface Player {
+export class Goalie {
+    id: number;
     name: string;    
 }
