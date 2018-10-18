@@ -16,25 +16,38 @@
       <thead>
       <tr>
         <th>
-          <button class='btn btn-primary'>
+          <!-- <button class='btn btn-primary'>
             Show Image
-          </button>
+          </button> -->
         </th>
         <th>Team</th>
         <th>Name</th>
-        <th>Position</th>
-        <th>Number</th>
-        <th>HFI</th>
+        <th>Goals</th>
+        <th>Assists</th>
+        <th>Hits</th>
+        <th>Plus/Minus</th>
+        <th>Power Play Goals</th>
+        <th>Power Play Assists</th>
+        <th>Short Handed Goals</th>
+        <th>Game Winning Goals</th>
+        <th>Shots on Goal</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let player of players">
         <td>&nbsp;</td>
-        <td>{{player.nhlPlayer.person.currentTeam.name}}</td>
-        <td>{{player.nhlPlayer.person.fullName}}</td>
-        <td>{{player.nhlPlayer.position.name}}</td>
-        <td>{{player.nhlPlayer.jerseyNumber}}</td>
-        <td>{{player.nhlPlayer.person.HFI}}</td>
+        <td><div class="player-content">{{player.nhlPlayer.person.currentTeam.name}}</div></td>
+        <td><div class="player-content">{{player.nhlPlayer.person.fullName}}</div></td>                
+        <td><div *ngIf="player.nhlPlayerStatsContainer.stats[0]" class="player-content">{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.goals}}</div></td>
+        <!-- <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.assists}}</td>
+        <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.hits}}</td>
+        <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.plusMinus}}</td>        
+        <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.powerPlayGoals}}</td>
+        <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.powerPlayAssists}}</td>
+        <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.shortHandedGoals}}</td>
+        <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.gameWinningGoals}}</td>
+        <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.shots}}</td> -->
+
       </tr>
     </tbody>
     </table>
