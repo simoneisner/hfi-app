@@ -34,19 +34,20 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let player of players">
+      <tr *ngFor="let player of playersArray">
         <td>&nbsp;</td>
         <td><div class="player-content">{{player.nhlPlayer.person.currentTeam.name}}</div></td>
         <td><div class="player-content">{{player.nhlPlayer.person.fullName}}</div></td>                
         <td><div *ngIf="player.nhlPlayerStatsContainer.stats[0]" class="player-content">{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.goals}}</div></td>
-        <!-- <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.assists}}</td>
+        <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.assists}}</td>
         <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.hits}}</td>
         <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.plusMinus}}</td>        
         <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.powerPlayGoals}}</td>
         <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.powerPlayAssists}}</td>
         <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.shortHandedGoals}}</td>
         <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.gameWinningGoals}}</td>
-        <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.shots}}</td> -->
+        <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.shots}}</td>
+        
 
       </tr>
     </tbody>
