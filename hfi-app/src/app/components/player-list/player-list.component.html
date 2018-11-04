@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="table-responsive">
-    <table class="table"  *ngIf="players && players.length">
+    <table class="table"  *ngIf="playersArray && playersArray.length">
       <thead>
       <tr>
         <th>
@@ -38,19 +38,19 @@
         <td>&nbsp;</td>
         <td><div class="player-content">{{player.nhlPlayer.person.currentTeam.name}}</div></td>
         <td><div class="player-content">{{player.nhlPlayer.person.fullName}}</div></td>                
-        <td><div *ngIf="player.nhlPlayerStatsContainer.stats[0]" class="player-content">{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.goals}}</div></td>
-        <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.assists}}</td>
-        <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.hits}}</td>
-        <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.plusMinus}}</td>        
-        <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.powerPlayGoals}}</td>
-        <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.powerPlayAssists}}</td>
-        <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.shortHandedGoals}}</td>
-        <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.gameWinningGoals}}</td>
-        <td>{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.shots}}</td>
-        
-
+        <td><div *ngIf="player.nhlPlayerStatsContainer.stats[0].splits; else stats_unavailable" class="player-content">{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.goals}}</div></td>        
+        <td *ngIf="player.nhlPlayerStatsContainer.stats[0].splits[0]; else stats_unavailable">{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.assists}}</td>
+        <td *ngIf="player.nhlPlayerStatsContainer.stats[0].splits[0]; else stats_unavailable">{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.hits}}</td>
+        <td *ngIf="player.nhlPlayerStatsContainer.stats[0].splits[0]; else stats_unavailable">{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.plusMinus}}</td>        
+        <td *ngIf="player.nhlPlayerStatsContainer.stats[0].splits[0]; else stats_unavailable">{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.powerPlayGoals}}</td>
+        <td *ngIf="player.nhlPlayerStatsContainer.stats[0].splits[0]; else stats_unavailable">{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.powerPlayAssists}}</td>
+        <td *ngIf="player.nhlPlayerStatsContainer.stats[0].splits[0]; else stats_unavailable">{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.shortHandedGoals}}</td>
+        <td *ngIf="player.nhlPlayerStatsContainer.stats[0].splits[0]; else stats_unavailable">{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.gameWinningGoals}}</td>
+        <td *ngIf="player.nhlPlayerStatsContainer.stats[0].splits[0]; else stats_unavailable">{{player.nhlPlayerStatsContainer.stats[0].splits[0].stat.shots}}</td> 
       </tr>
     </tbody>
     </table>
   </div>
 </div>
+
+<ng-template #stats_unavailable>N/A</ng-template>
